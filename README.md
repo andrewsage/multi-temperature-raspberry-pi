@@ -44,6 +44,8 @@ kill PID
 
 # Graphing the readings
 
+![sample graph showing both sensors](images/sample_graph.png)
+
 
 Running
 
