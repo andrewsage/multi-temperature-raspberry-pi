@@ -65,3 +65,12 @@ sudo pip3 install matplotlib
 sudo apt-get install libatlas3-base
 sudo pip3 install seaborn
 ```
+
+# Diagnostic Testing
+
+The following scripts can be used to check that things are working:
+
+| Script | Purpose |
+| --- | --- |
+| `python3 lcd_ip_address.py` | Displays the WiFi SSID and the Rasperberry Pi's IP address. |
+| `python3 lcd_hello.py` | Display a Hello World message to check that LCD is functioning. |
