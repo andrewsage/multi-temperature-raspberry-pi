@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import database_driver
 
 dbname = 'sensorsData.db'
