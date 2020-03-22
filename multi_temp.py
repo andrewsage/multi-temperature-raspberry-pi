@@ -9,6 +9,9 @@ from datetime import datetime
 import I2C_LCD_driver
 import database_driver
 
+dbname = 'sensorsData.db'
+db = database_driver.database(dbname)
+
 lcd = I2C_LCD_driver.lcd()
 
 sensorFloor = 1
