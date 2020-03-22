@@ -22,8 +22,8 @@ dhtLowerDevice = adafruit_dht.DHT11(board.D16)
 dhtUpperDevice = adafruit_dht.DHT11(board.D18)
 
 # save the data to the database
-def logData(sensor, temperature, humidity):
-    db.execute_query("INSERT INTO DHT_data values(datetime('now'), (?), (?), (?))", (sensor, temperature, humidity))
+def logData(timestamp, sensor, temperature, humidity):
+    db.execute_query("INSERT INTO DHT_data values((?), (?), (?), (?))", (timestamp, sensor, temperature, humidity))
 
 while True:
     try:
@@ -33,8 +33,8 @@ while True:
         humidity_lower = dhtLowerDevice.humidity
         temperature_upper = dhtUpperDevice.temperature
         humidity_upper = dhtUpperDevice.humidity
-        logData(sensorFloor, temperature_lower, humidity_lower)
-        logData(sensorDesk, temperature_upper, humidity_upper)
+        logData(now, sensorFloor, temperature_lower, humidity_lower)
+        logData(now, sensorDesk, temperature_upper, humidity_upper)
         lcd.lcd_display_string("F:{:.1f} D:{:.1f}".format(temperature_lower, temperature_upper), 1)
         lcd.lcd_display_string("F:{}% D:{}%".format(humidity_lower, humidity_upper), 2)
         print("Temp Floor: {:.1f} C    Temp Desk: {:.1f} C    Humidity Floor: {}%     Humidity Desk: {}% "
