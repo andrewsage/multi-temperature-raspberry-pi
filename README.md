@@ -66,6 +66,17 @@ It may be necessary to use this script if there are problems with libgpiod:
 
 https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/blob/master/libgpiod.sh
 
+# Setting up
+
+## Database
+
+To build the database run:
+
+```
+python3 create_database.py
+```
+
+It creates the database and tables if they do not exist. If they do already exist then the existing data will not be affected.
 
 # Running 
 
