@@ -14,8 +14,11 @@ db = database_driver.database(dbname)
 
 sns.set()
 
+con = db.create_connection()
 dfFloor = pd.read_sql_query('SELECT timestamp, temperature, humidity FROM DHT_data WHERE sensor=1 ORDER BY timestamp', con, parse_dates=['timestamp'], index_col=['timestamp'])
 dfDesk = pd.read_sql_query('SELECT timestamp, temperature, humidity FROM DHT_data WHERE sensor=1 ORDER BY timestamp', con, parse_dates=['timestamp'], index_col=['timestamp'])
+con.close()
+
 resampledFloor = dfFloor.resample('1T').mean()
 resampledDesk = dfDesk.resample('1T').mean()
 
