@@ -13,6 +13,8 @@ Made available under GNU GENERAL PUBLIC LICENSE
 # By DenisFromHR (Denis Pleic)
 # 2015-02-10, ver 0.1
 
+# added to by Andrew Sage (andrewsage) 2020-03
+
 """
 
 # i2c bus (0 -- original Pi, 1 -- Rev 2 Pi)
@@ -105,7 +107,7 @@ Rs = 0b00000001 # Register select bit
 
 class lcd:
    #initializes objects and lcd
-   def __init__(self):
+   def __init__(self, clear=True):
       self.lcd_device = i2c_device(ADDRESS)
 
       self.lcd_write(0x03)
@@ -115,7 +117,8 @@ class lcd:
 
       self.lcd_write(LCD_FUNCTIONSET | LCD_2LINE | LCD_5x8DOTS | LCD_4BITMODE)
       self.lcd_write(LCD_DISPLAYCONTROL | LCD_DISPLAYON)
-      self.lcd_write(LCD_CLEARDISPLAY)
+      if clear == True:
+         self.lcd_write(LCD_CLEARDISPLAY)
       self.lcd_write(LCD_ENTRYMODESET | LCD_ENTRYLEFT)
       sleep(0.2)
 
@@ -144,6 +147,9 @@ class lcd:
   
    # put string function with optional char positioning
    def lcd_display_string(self, string, line=1, pos=0):
+    if pos == 0:
+      string = string.ljust(16, ' ')
+      
     if line == 1:
       pos_new = pos
     elif line == 2:
