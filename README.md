@@ -2,7 +2,7 @@
 
 This simple project was put together to observe the temperature difference between the floor and desk level in my home office.
 
-It reads the temperature and humidity sensors every 10 seconds and logs the readings to a file called `temp_log.csv`.
+It reads the temperature and humidity sensors every 10 seconds and logs the readings to a SQLite database.
 
 # Hardware
 
