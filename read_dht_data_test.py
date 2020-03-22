@@ -6,7 +6,7 @@ dbname = 'sensorsData.db'
 db = database_driver.database(dbname)
 
 def getData(sensor):
-	rows = db.select('SELECT * FROM DHT_data WHERE sensor=? ORDER BY timestamp DESC LIMIT 1', (sensor))
+	rows = db.select('SELECT * FROM DHT_data WHERE sensor=:sensor ORDER BY timestamp DESC LIMIT 1', {"sensor": sensor})
 	print(rows)
 	for row in rows:
 		print(row)
