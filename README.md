@@ -27,6 +27,46 @@ sudo pip3 install adafruit-circuitpython-dht
 sudo apt-get install libgpiod2
 ```
 
+# Installation
+
+## Installation commands
+
+The following are required to be installed for the various components of the system.
+
+First run
+
+```
+sudo apt-get update
+```
+
+
+| Component | Purpose | Installation commands |
+| --- | --- | --- |
+| PIP | python installer | `sudo python3 -m pip install --upgrade pip` |
+| RPI.GPIO | Hardware interface | `sudo pip3 install RPI.GPIO` |
+| Adafruit drivers | used by sensors | `sudo pip3 install adafruit-blinka` |
+| DHT | Humidity / Temp sensor | `sudo pip3 install adafruit-circuitpython-dht`<br>`sudo apt-get install libgpiod2`|
+| SQLite | database| `sudo apt-get install sqlite3`|
+| Flask | webserver| `sudo apt-get install python3-flask`|
+| Pandas | data wrangling|`sudo pip3 install pandas`|
+| Matplot | graphing|`sudo pip3 install matplotlib`|
+| Seaborn | graph styling|`sudo apt-get install libatlas3-base`<br>`sudo pip3 install seaborn`|
+
+## Warnings / Errors
+
+Use ` --ignore-installed` flag on any of the pip3 install commands if 
+
+```
+It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+```
+
+error occurs.
+
+It may be necessary to use this script if there are problems with libgpiod:
+
+https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/blob/master/libgpiod.sh
+
+
 # Running 
 
 To start it running (and be able to close the terminal and leave it running):
@@ -55,16 +95,6 @@ python3 graph.py
 
 will generate a set of graphs and save them as a file called `temp.png`.
 
-## Graph requirements
-
-In order for the graphing to work the following needs to be installed:
-
-```
-sudo pip3 install pandas
-sudo pip3 install matplotlib
-sudo apt-get install libatlas3-base
-sudo pip3 install seaborn
-```
 
 # Diagnostic Testing
 
