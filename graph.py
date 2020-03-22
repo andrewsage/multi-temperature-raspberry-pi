@@ -68,4 +68,5 @@ ax3.set_ylabel('Delta ($^\circ$C)')
 ax3.set_title('Temperature Difference')
 
 fig.autofmt_xdate()
+fig.tight_layout()
 fig.savefig('temp.png')
