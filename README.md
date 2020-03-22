@@ -115,3 +115,4 @@ The following scripts can be used to check that things are working:
 | --- | --- |
 | `python3 lcd_ip_address.py` | Displays the WiFi SSID and the Rasperberry Pi's IP address. |
 | `python3 lcd_hello.py` | Display a Hello World message to check that LCD is functioning. |
+| `python3 read_dht_data_test.py ` | Displays the last temperature / humidity reading for each sensor from the database. |
