@@ -52,6 +52,8 @@ sudo apt-get update
 | Matplot | graphing|`sudo pip3 install matplotlib`|
 | Seaborn | graph styling|`sudo apt-get install libatlas3-base`<br>`sudo pip3 install seaborn`|
 
+Note: webserver still to be implemented.
+
 ## Warnings / Errors
 
 Use ` --ignore-installed` flag on any of the pip3 install commands if 
