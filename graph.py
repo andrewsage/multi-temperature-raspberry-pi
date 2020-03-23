@@ -59,7 +59,7 @@ ax2.set_ylabel('Humidity (%)')
 ax2.set_title('Humidity at floor vs. desk')
 ax2.legend()
 
-ax3.plot(resampledFloor.index.values, resampledFloor['temperature'] - resampledDesk['temperature'], label="Difference")
+ax3.plot(resampledFloor.index.values, resampledDesk['temperature'] - resampledFloor['temperature'], label="Difference")
 date_format = mpl_dates.DateFormatter('%Y-%m-%d %H:%M')
 ax3.xaxis_date()
 ax3.xaxis.set_major_formatter(date_format)
