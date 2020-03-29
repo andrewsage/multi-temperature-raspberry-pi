@@ -17,7 +17,7 @@ dbname = 'sensorsData.db'
 db = database_driver.database(dbname)
 
 def getDHTData(sensor):
-	rows = db.select('SELECT * FROM DHT_data WHERE sensor=(?) ORDER BY timestamp DESC LIMIT 1', (sensor))
+	rows = db.select('SELECT * FROM DHT_data WHERE sensor=:sensor ORDER BY timestamp DESC LIMIT 1', {"sensor": sensor})
 	if len(rows) > 0:
 		for row in rows:
 			time = str(row[0])
@@ -28,7 +28,7 @@ def getDHTData(sensor):
 		raise Exception("No DHT data has been logged yet")
 
 def getHistoricalDHTData(sensor):
-	rows = db.select('SELECT * FROM DHT_data WHERE sensor=(?) ORDER BY timestamp', (sensor))
+	rows = db.select('SELECT * FROM DHT_data WHERE sensor=:sensor ORDER BY timestamp', {"sensor": sensor})
 	dates = []
 	temperatures = []
 	humidities = []
