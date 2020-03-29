@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+	<head>
+			<title>Multi-temp Basic Dashboard</title>
+			<link rel="stylesheet" href="../static/style.css/">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<style>
+				body {
+				    text-align: center;
+				}
+				#gTemp1,
+				#gHum1,
+				#gTemp2,
+				#gHum2 {
+				    width: 200px;
+				    height: 160px;
+				    display: inline-block;
+				    margin: 1em;
+				}
+			</style>
+	</head>
+	<body>
+		<a href="graphs" class="button">Graphs</a>
+		<h1>Multi-temp Dashboard</h1>
+
+		<h2>DHT Sensor 1 Data</h2>
+		<div id="gTemp1"></div>
+    <div id="gHum1"></div>
+
+    <h3>Last sensor reading: {{ dht_time1 }} <a href="/" class="button">REFRESH</a></h3>
+
+    <h2>DHT Sensor 2 Data</h2>
+		<div id="gTemp2"></div>
+    <div id="gHum2"></div>
+
+    <h3>Last sensor reading: {{ dht_time2 }} <a href="/" class="button">REFRESH</a></h3>
+    <p>
+    	<a href="/csv/dht" class="button">Download DHT data as CSV</a>
+    </p>
+
+		<script src="../static/raphael-2.1.4.min.js"></script>
+	    <script src="../static/justgage.js"></script>
+	    <script>
+		var gTemp, gHum, gValue, gVoltage;
+		document.addEventListener("DOMContentLoaded", function(event) {
+		    gTemp1 = new JustGage({
+					id: "gTemp1",
+					value: {{temperature1}},
+					valueFontColor: "yellow",
+					min: -10,
+					max: 40,
+					title: "Temperature",
+					label: "Celcius",
+					pointer: true,
+					titleFontColor: "white",
+					labelFontColor: "white"
+				});
+		    gHum1 = new JustGage({
+					id: "gHum1",
+					value: {{humidity1}},
+					valueFontColor: "yellow",
+					min: 0,
+					max: 100,
+					title: "Humidity",
+					label: "%",
+					pointer: true,
+					titleFontColor: "white",
+					labelFontColor: "white"
+				});
+				gTemp2 = new JustGage({
+					id: "gTemp2",
+					value: {{temperature1}},
+					valueFontColor: "yellow",
+					min: -10,
+					max: 40,
+					title: "Temperature",
+					label: "Celcius",
+					pointer: true,
+					titleFontColor: "white",
+					labelFontColor: "white"
+				});
+		    gHum2 = new JustGage({
+					id: "gHum2",
+					value: {{humidity1}},
+					valueFontColor: "yellow",
+					min: 0,
+					max: 100,
+					title: "Humidity",
+					label: "%",
+					pointer: true,
+					titleFontColor: "white",
+					labelFontColor: "white"
+				});
+	     });
+    </script>
+	</body>
+</html>
