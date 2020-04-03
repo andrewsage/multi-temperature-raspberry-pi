@@ -18,8 +18,8 @@ sensorFloor = 1
 sensorDesk = 2
 
 # Initial the dht device, with data pin connected to:
-dhtLowerDevice = adafruit_dht.DHT11(board.D16)
-dhtUpperDevice = adafruit_dht.DHT11(board.D18)
+dhtLowerDevice = adafruit_dht.DHT22(board.D16)
+dhtUpperDevice = adafruit_dht.DHT22(board.D18)
 
 # save the data to the database
 def logData(timestamp, sensor, temperature, humidity):

@@ -10,7 +10,9 @@ The system this software is written for is as follows:
 
 * Raspberry Pi 3 running Raspbian 10.3 (buster)
 * I2C 16x2 LCD - https://wiki.52pi.com/index.php?title=1602_Serial_LCD_Module_Display_SKU:Z-0234
-* 2 x DHT 11 Temperature / Humidity sensors
+* 2 x DHT 22 Temperature / Humidity sensors
+
+(Originally it was using 2 x DHT 11 sensors, however these have been replaced with DHT 22)
 
 # Software requirements
 
