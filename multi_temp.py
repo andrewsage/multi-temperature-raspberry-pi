@@ -35,6 +35,7 @@ while True:
         humidity_upper = dhtUpperDevice.humidity
         logData(now, sensorFloor, temperature_lower, humidity_lower)
         logData(now, sensorDesk, temperature_upper, humidity_upper)
+        lcd.backlight(0)
         lcd.lcd_display_string("F:{:.1f} D:{:.1f}".format(temperature_lower, temperature_upper), 1)
         lcd.lcd_display_string("F:{}% D:{}%".format(humidity_lower, humidity_upper), 2)
         print("Temp Floor: {:.1f} C    Temp Desk: {:.1f} C    Humidity Floor: {}%     Humidity Desk: {}% "
@@ -47,5 +48,5 @@ while True:
     except OverflowError as error:
         print(error.args[0])
 
-    time.sleep(10.0)
+    time.sleep(60.0)
 
